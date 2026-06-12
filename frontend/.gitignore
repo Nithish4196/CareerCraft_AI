@@ -39,11 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-
-NEXT_PUBLIC_FIREBASE_API_KEY="AIzaSyDfRP7dBlhH6ZWw9jhmela9vecVjeIubYI"
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="careerpilot-ai-4d24e.firebaseapp.com",
-NEXT_PUBLIC_FIREBASE_PROJECT_ID="careerpilot-ai-4d24e"
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="careerpilot-ai-4d24e.firebasestorage.app"
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="539569793560"
-NEXT_PUBLIC_FIREBASE_APP_ID="1:539569793560:web:90a9b414a12110c419f16d"
