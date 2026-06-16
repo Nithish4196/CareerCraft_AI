@@ -460,30 +460,14 @@ export default function AppSettingsPage() {
       >
         <div className="space-y-1 divide-y divide-muted">
           <Toggle 
-            label="Daily Learning Reminder" 
-            checked={settings.notifications.dailyReminder}
-            onChange={(val: boolean) => updateSetting('notifications', 'dailyReminder', val)}
-          />
-          <Toggle 
             label="Job Match Alerts" 
             checked={settings.notifications.jobMatches}
             onChange={(val: boolean) => updateSetting('notifications', 'jobMatches', val)}
           />
           <Toggle 
-            label="Interview Reminders" 
-            checked={settings.notifications.interviewReminders}
-            onChange={(val: boolean) => updateSetting('notifications', 'interviewReminders', val)}
-          />
-          <Toggle 
             label="Weekly Progress Summary" 
             checked={settings.notifications.weeklyProgress}
             onChange={(val: boolean) => updateSetting('notifications', 'weeklyProgress', val)}
-          />
-          <Toggle 
-            label="Streak Reminder" 
-            description="We'll notify you if you haven't logged activity for the day."
-            checked={settings.notifications.streakReminder}
-            onChange={(val: boolean) => updateSetting('notifications', 'streakReminder', val)}
           />
           <Toggle 
             label="Product Updates & Announcements" 

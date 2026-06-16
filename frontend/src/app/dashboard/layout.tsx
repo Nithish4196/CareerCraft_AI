@@ -63,6 +63,20 @@ export default function DashboardLayout({
 
   const initial = userProfile?.fullName ? userProfile.fullName.charAt(0).toUpperCase() : user?.email?.charAt(0).toUpperCase() || 'U';
 
+  const isFullScreenRoute = [
+    "/dashboard/resume/score", 
+    "/dashboard/jobs/tracker", 
+    "/dashboard/trending-jobs", 
+    "/dashboard/learning/active", 
+    "/dashboard/activity", 
+    "/dashboard/interviews/history", 
+    "/dashboard/insights"
+  ].includes(pathname) || pathname.startsWith("/dashboard/interviews/history/");
+
+  if (isFullScreenRoute) {
+    return <div className="flex min-h-screen bg-background">{children}</div>;
+  }
+
   return (
     <div className="flex h-screen bg-muted/20 overflow-hidden">
       

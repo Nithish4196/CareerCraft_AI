@@ -5,6 +5,7 @@ import JobSearchHeader from '@/components/jobs/JobSearchHeader';
 import JobSidebarFilters from '@/components/jobs/JobSidebarFilters';
 import JobCard from '@/components/jobs/JobCard';
 import JobDetailsPanel from '@/components/jobs/JobDetailsPanel';
+import ApplicationTrackerView from '@/components/jobs/ApplicationTrackerView';
 import { Job, mockJobs } from '@/types/job';
 import { Sparkles } from 'lucide-react';
 
@@ -129,22 +130,7 @@ export default function JobsPage() {
       </div>
 
       {activeTab === 'tracker' ? (
-        <div className="bg-background border border-muted rounded-2xl p-8 text-center py-20">
-          <h2 className="text-2xl font-bold mb-4">Application Tracker</h2>
-          <p className="text-muted-foreground max-w-lg mx-auto mb-8">
-            Keep track of all your Saved, Applied, Interviewing, and Offered jobs in one place.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {['Saved', 'Applied', 'Interview', 'Offered', 'Rejected'].map(status => (
-              <div key={status} className="bg-muted/30 border border-muted rounded-xl p-4 flex flex-col items-center justify-center min-h-[150px]">
-                <h3 className="font-bold mb-2">{status}</h3>
-                <span className="text-3xl font-extrabold text-muted-foreground/50">
-                  {status === 'Saved' ? savedJobs.length : '0'}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <ApplicationTrackerView />
       ) : (
         <>
           {/* Header & Search */}
