@@ -18,8 +18,9 @@ import {
   X,
   LogOut,
   Bell,
-  Loader2
-} from"lucide-react";
+  Loader2,
+  BookOpen
+} from "lucide-react";
 import ChatBot from"@/components/dashboard/ChatBot";
 import ProfileDropdown from"@/components/dashboard/ProfileDropdown";
 
@@ -28,6 +29,7 @@ const sidebarLinks = [
   { name:"Resume Builder", href:"/dashboard/resume", icon: FileText },
   { name:"Job Finder", href:"/dashboard/jobs", icon: Briefcase },
   { name:"Learning Hub", href:"/dashboard/learning", icon: GraduationCap },
+  { name:"CareerPilot Classroom", href:"/dashboard/classroom", icon: BookOpen },
   { name:"Mock Interviews", href:"/dashboard/interviews", icon: Video },
   { name:"Project Builder", href:"/dashboard/projects", icon: Code },
   { name:"Career Roadmaps", href:"/dashboard/roadmaps", icon: MapIcon },

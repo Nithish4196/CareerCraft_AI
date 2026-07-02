@@ -41,7 +41,7 @@ async function test() {
 
   for (const item of allRawItems) {
     if (!item.link || !item.title) continue;
-    
+
     const pubDate = item.pubDate ? new Date(item.pubDate) : new Date();
     if (pubDate < fortyEightHoursAgo) continue;
 

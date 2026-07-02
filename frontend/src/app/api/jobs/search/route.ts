@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
     let isCached = false;
     
     try {
-      const cacheRef = collection(db, "job_cache_adzuna");
+      const cacheRef = collection(db, "job_cache");
       const q = query(cacheRef, where("cacheKey", "==", cacheKey));
       const snap = await getDocs(q);
       
@@ -173,7 +173,7 @@ export async function POST(request: NextRequest) {
       // Save to cache
       try {
         if (allJobs.length > 0) {
-          addDoc(collection(db, "job_cache_adzuna"), {
+          addDoc(collection(db, "job_cache"), {
             cacheKey,
             jobsData: JSON.stringify(allJobs),
             createdAt: Timestamp.now()
