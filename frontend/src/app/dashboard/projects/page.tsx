@@ -6,10 +6,13 @@ import LandingForm from '@/components/projects/LandingForm';
 import GeneratingScreen from '@/components/projects/GeneratingScreen';
 import BlueprintView from '@/components/projects/BlueprintView';
 import SavedProjects from '@/components/projects/SavedProjects';
+import { useAuth } from '@/context/AuthContext';
+import { logActivity } from '@/lib/activity';
 
 type AppState ="landing" |"generating" |"blueprint" |"saved";
 
 export default function ProjectsPage() {
+  const { user } = useAuth();
   const [appState, setAppState] = useState<AppState>("landing");
   const [currentRequest, setCurrentRequest] = useState<ProjectRequest | null>(null);
   const [currentBlueprint, setCurrentBlueprint] = useState<ProjectBlueprint | null>(null);
@@ -37,6 +40,7 @@ export default function ProjectsPage() {
   }, [savedProjects]);
 
   const handleGenerate = (req: ProjectRequest) => {
+    if (user) logActivity(user.uid, "projectsWorked");
     setCurrentRequest(req);
     setAppState("generating");
     

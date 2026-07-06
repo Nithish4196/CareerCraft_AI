@@ -33,6 +33,7 @@ export default function MockInterviewsPage() {
     setResults([]);
     setModalState(null);
     setAppState("session");
+    if (user) logActivity(user.uid, "mockInterviews");
   };
 
   const handleStartCustom = () => {
@@ -45,6 +46,7 @@ export default function MockInterviewsPage() {
     setResults([]);
     setModalState(null);
     setAppState("session");
+    if (user) logActivity(user.uid, "mockInterviews");
   };
 
   const handleRoundFinish = (score: number, feedback: string[]) => {

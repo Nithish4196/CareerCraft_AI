@@ -6,10 +6,13 @@ import LandingForm from '@/components/roadmaps/LandingForm';
 import GeneratingScreen from '@/components/roadmaps/GeneratingScreen';
 import RoadmapView from '@/components/roadmaps/RoadmapView';
 import SavedRoadmaps from '@/components/roadmaps/SavedRoadmaps';
+import { useAuth } from '@/context/AuthContext';
+import { logActivity } from '@/lib/activity';
 
 type AppState ="landing" |"generating" |"roadmap" |"saved";
 
 export default function RoadmapsPage() {
+  const { user } = useAuth();
   const [appState, setAppState] = useState<AppState>("landing");
   const [currentRequest, setCurrentRequest] = useState<RoadmapRequest | null>(null);
   const [currentRoadmap, setCurrentRoadmap] = useState<CareerRoadmap | null>(null);
@@ -37,6 +40,7 @@ export default function RoadmapsPage() {
   }, [savedRoadmaps]);
 
   const handleGenerate = (req: RoadmapRequest) => {
+    if (user) logActivity(user.uid, "roadmapTasksCompleted");
     setCurrentRequest(req);
     setAppState("generating");
     

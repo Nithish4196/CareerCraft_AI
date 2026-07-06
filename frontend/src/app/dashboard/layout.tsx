@@ -155,7 +155,7 @@ export default function DashboardLayout({
         {/* Unified Top Header */}
         <header className="h-16 flex items-center justify-between px-4 md:px-8 bg-background border-b border-muted shrink-0 z-10">
           {/* Mobile Branding */}
-          <Link href="/" className="flex items-center font-black text-sm text-black dark:text-white md:hidden pr-4 leading-tight italic">
+          <Link href="/" className="flex items-center font-black text-sm text-black darknpm run dev:text-white md:hidden pr-4 leading-tight italic">
             "Turning ambition into achievement..."
           </Link>
 

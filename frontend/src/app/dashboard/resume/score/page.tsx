@@ -9,6 +9,7 @@ import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import BackButton from "@/components/dashboard/BackButton";
+import { logActivity } from "@/lib/activity";
 
 const CircularProgress = ({ value, size = 120, strokeWidth = 10, color = "#2563eb", showText = true }: any) => {
   const radius = (size - strokeWidth) / 2;
@@ -244,6 +245,7 @@ export default function ResumeScorePage() {
         updatedAt: new Date()
       });
       
+      logActivity(user.uid, "resumeEdits");
       toast.success(`Resume analyzed for ${role}!`);
       setViewState("results");
     } catch (error) {

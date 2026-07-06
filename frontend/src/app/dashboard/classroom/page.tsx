@@ -4,6 +4,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, Sparkles, Code, Bot } from 'lucide-react';
 import { generateChatResponse } from '@/actions/chatAction';
 import CodeVisualExplainer from '@/components/ai-assistant/CodeVisualExplainer';
+import { useAuth } from '@/context/AuthContext';
+import { logActivity } from '@/lib/activity';
 
 interface Message {
   id: string;
@@ -14,6 +16,7 @@ interface Message {
 }
 
 export default function ClassroomPage() {
+  const { user } = useAuth();
   const [messages, setMessages] = useState<Message[]>([
     { 
       id: "1", 
@@ -46,6 +49,10 @@ export default function ClassroomPage() {
     const currentInput = inputText;
     setInputText("");
     setIsTyping(true);
+
+    if (user) {
+      logActivity(user.uid, "aiChatMessages");
+    }
 
     try {
       if (containsCode(currentInput)) {

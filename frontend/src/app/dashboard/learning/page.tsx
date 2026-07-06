@@ -10,8 +10,11 @@ import {
   Search, X, Map as MapIcon, PlayCircle, BookOpen, 
   ArrowLeft, SearchX, Route, Video
 } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
+import { logActivity } from '@/lib/activity';
 
 export default function LearningHubPage() {
+  const { user } = useAuth();
   const [selectedPath, setSelectedPath] = useState<CareerPath | null>(null);
   const [activeTab, setActiveTab] = useState<"courses" |"roadmap" |"videos">("courses");
   const [courseFilter, setCourseFilter] = useState<"all" |"certification" |"free" |"high">("all");
@@ -80,7 +83,10 @@ export default function LearningHubPage() {
         {filteredPaths.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-4">
             {filteredPaths.map(path => (
-              <PathCard key={path.id} path={path} onClick={(p) => setSelectedPath(p)} />
+              <PathCard key={path.id} path={path} onClick={(p) => {
+                setSelectedPath(p);
+                if (user) logActivity(user.uid, "coursesStudied");
+              }} />
             ))}
           </div>
         ) : (

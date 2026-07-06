@@ -1,6 +1,8 @@
 import React from 'react';
 import { Job } from '@/types/job';
 import { MapPin, IndianRupee, Clock, Bookmark, Building2, Zap, Briefcase } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
+import { logActivity } from '@/lib/activity';
 
 interface JobCardProps {
   job: Job;
@@ -11,6 +13,8 @@ interface JobCardProps {
 }
 
 export default function JobCard({ job, isSaved = false, isApplied = false, onToggleSave, onClick }: JobCardProps) {
+  const { user } = useAuth();
+  
   const getScoreStyle = (score: number) => {
     if (score >= 90) return "text-blue-700 bg-blue-50 border-blue-200 font-extrabold";
     if (score >= 70) return "text-gray-800 bg-gray-100 border-gray-300";
@@ -90,6 +94,7 @@ export default function JobCard({ job, isSaved = false, isApplied = false, onTog
             disabled={isApplied}
             onClick={(e) => { 
               e.stopPropagation(); 
+              if (user) logActivity(user.uid, "jobsApplied");
               if (job.applyLink) window.open(job.applyLink, '_blank');
             }}
             className={`${isApplied ? 'bg-gray-200 text-gray-500' : 'bg-black text-white hover:bg-gray-800'} text-sm font-bold px-5 py-2 rounded-lg transition-colors duration-150 ease-out`}
