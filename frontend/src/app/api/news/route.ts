@@ -110,11 +110,9 @@ export async function GET(request: Request) {
     const model = genAI.getGenerativeModel({
       model:"gemini-1.5-flash",
       generationConfig: {
-        responseMimeType:"application/json",
-        responseSchema: arraySchema,
         temperature: 0.2,
       },
-    });
+    }, { apiVersion: "v1" });
 
     // We still trim snippets for Gemini
     const articlesJSON = JSON.stringify(topItems.map(i => ({
@@ -133,7 +131,10 @@ For each article below, write ONE short insight (2-3 sentences) explaining why t
 Articles:
 ${articlesJSON}
 
-Skip any article that has no meaningful career relevance for students or job seekers — do not force an insight onto irrelevant content.`;
+Skip any article that has no meaningful career relevance for students or job seekers — do not force an insight onto irrelevant content.
+Return your output ONLY as a raw JSON array matching this structure:
+[{ "headline": "string", "source": "string", "link": "string", "publishedAt": "string", "category": "string", "whyItMatters": "string" }]
+Do NOT wrap it in markdown block quotes (\`\`\`). Return ONLY JSON.`;
 
     let insights: any[] = [];
 

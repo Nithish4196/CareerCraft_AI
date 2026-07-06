@@ -75,7 +75,7 @@ export default function SignUpPage() {
     <AuthLayout>
       <div className="w-full">
         <h2 className="text-2xl font-extrabold mb-2">Create an account</h2>
-        <p className="text-muted-foreground mb-8">Join CareerPilot AI to accelerate your career.</p>
+        <p className="text-muted-foreground mb-8">Join CareerCraft AI to accelerate your career.</p>
 
         <OAuthButtons />
 

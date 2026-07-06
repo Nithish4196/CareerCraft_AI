@@ -14,10 +14,8 @@ export default function MarketingLayout({
       <aside className="fixed inset-y-0 left-0 z-50 w-64 bg-background/80 backdrop-blur-md border-r border-muted hidden md:flex flex-col">
         <div className="p-6 border-b border-muted">
           <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            CareerPilot<span className="text-primary">AI</span>
+            <img src="/Logo.webp" alt="CareerPilot AI Logo" className="w-8 h-8 object-contain" />
+            CareerCraft<span className="text-primary">AI</span>
           </Link>
         </div>
         <nav className="flex-1 px-4 py-6 space-y-2">
@@ -40,9 +38,7 @@ export default function MarketingLayout({
         {/* Mobile Header (Visible only on small screens) */}
         <header className="md:hidden h-16 flex items-center justify-between px-6 border-b border-muted bg-background/80 backdrop-blur-md sticky top-0 z-40">
           <Link href="/" className="flex items-center gap-2 font-bold tracking-tight">
-            <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center text-white">
-              <Sparkles className="w-3 h-3" />
-            </div>
+            <img src="/Logo.webp" alt="CareerPilot AI Logo" className="w-12 h-12 object-contain" />
             CareerPilot
           </Link>
           <Link href="/signup" className="text-xs font-medium bg-primary text-primary-foreground px-3 py-1.5 rounded-full">
@@ -59,8 +55,8 @@ export default function MarketingLayout({
           <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             <div className="col-span-2 md:col-span-1">
               <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight mb-4">
-                <Sparkles className="w-5 h-5 text-primary" />
-                CareerPilot<span className="text-primary">AI</span>
+                <img src="/Logo.webp" alt="CareerPilot AI Logo" className="w-6 h-6 object-contain" />
+                CareerCraft<span className="text-primary">AI</span>
               </Link>
               <p className="text-muted-foreground text-sm">Your all-in-one AI career copilot.</p>
             </div>
@@ -90,7 +86,7 @@ export default function MarketingLayout({
             </div>
           </div>
           <div className="max-w-7xl mx-auto pt-8 border-t border-muted text-center text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} CareerPilot AI. All rights reserved.
+            &copy; {new Date().getFullYear()} CareerCraft AI. All rights reserved.
           </div>
         </footer>
       </div>

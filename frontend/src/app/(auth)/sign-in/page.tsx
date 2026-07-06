@@ -54,7 +54,7 @@ export default function SignInPage() {
     <AuthLayout>
       <div className="w-full">
         <h2 className="text-2xl font-extrabold mb-2">Welcome back</h2>
-        <p className="text-muted-foreground mb-8">Sign in to your CareerPilot AI account.</p>
+        <p className="text-muted-foreground mb-8">Sign in to your CareerCraft AI account.</p>
 
         <OAuthButtons />
 

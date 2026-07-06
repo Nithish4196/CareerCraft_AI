@@ -162,7 +162,7 @@ export default function ProfileDropdown() {
               </div>
               <h3 className="text-xl font-bold mb-2 text-foreground">Sign Out</h3>
               <p className="text-muted-foreground text-sm mb-6">
-                Are you sure you want to sign out of CareerPilot AI?
+                Are you sure you want to sign out of CareerCraft AI?
               </p>
               <div className="flex w-full gap-3">
                 <button

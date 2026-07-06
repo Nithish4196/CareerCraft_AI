@@ -18,8 +18,7 @@ import {
   X,
   LogOut,
   Bell,
-  Loader2,
-  BookOpen
+  Loader2
 } from "lucide-react";
 import ChatBot from"@/components/dashboard/ChatBot";
 import ProfileDropdown from"@/components/dashboard/ProfileDropdown";
@@ -29,7 +28,7 @@ const sidebarLinks = [
   { name:"Resume Builder", href:"/dashboard/resume", icon: FileText },
   { name:"Job Finder", href:"/dashboard/jobs", icon: Briefcase },
   { name:"Learning Hub", href:"/dashboard/learning", icon: GraduationCap },
-  { name:"CareerPilot Classroom", href:"/dashboard/classroom", icon: BookOpen },
+  { name:"CareerCraft Classroom", href:"/dashboard/classroom", icon: Code },
   { name:"Mock Interviews", href:"/dashboard/interviews", icon: Video },
   { name:"Project Builder", href:"/dashboard/projects", icon: Code },
   { name:"Career Roadmaps", href:"/dashboard/roadmaps", icon: MapIcon },
@@ -90,13 +89,13 @@ export default function DashboardLayout({
         }`}
       >
         {/* Brand */}
-        <div className="h-16 flex items-center px-6 border-b border-muted">
-          <Link href="/" className="flex items-center gap-2 font-bold text-lg tracking-tight">
-            <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center text-white">
-              <Sparkles className="w-4 h-4" />
-            </div>
-            CareerPilot<span className="text-primary">AI</span>
-          </Link>
+        <div className="h-24 flex items-center px-6 border-b border-muted">
+          <div className="flex items-center gap-3">
+            <img src="/Logo.webp" alt="CareerCraft AI Logo" className="w-12 h-12 object-contain scale-125 origin-left" />
+            <span className="text-xl font-bold tracking-tight">
+              CareerCraft<span className="text-primary">AI</span>
+            </span>
+          </div>
           <button 
             className="ml-auto md:hidden text-muted-foreground"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -156,15 +155,16 @@ export default function DashboardLayout({
         {/* Unified Top Header */}
         <header className="h-16 flex items-center justify-between px-4 md:px-8 bg-background border-b border-muted shrink-0 z-10">
           {/* Mobile Branding */}
-          <div className="flex items-center gap-2 font-bold tracking-tight md:hidden">
-            <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center text-white">
-              <Sparkles className="w-3 h-3" />
-            </div>
-            CareerPilot
-          </div>
+          <Link href="/" className="flex items-center font-black text-sm text-black dark:text-white md:hidden pr-4 leading-tight italic">
+            "Turning ambition into achievement..."
+          </Link>
 
-          {/* Desktop Spacer */}
-          <div className="hidden md:block"></div>
+          {/* Desktop Slogan */}
+          <div className="hidden md:flex flex-1 justify-start">
+            <span className="text-xl font-black text-foreground leading-tight italic">
+              "Turning ambition into achievement..."
+            </span>
+          </div>
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-4 ml-auto">
@@ -207,7 +207,7 @@ export default function DashboardLayout({
               </div>
               <h3 className="text-xl font-bold mb-2 text-foreground">Sign Out</h3>
               <p className="text-muted-foreground text-sm mb-6">
-                Are you sure you want to sign out of CareerPilot AI?
+                Are you sure you want to sign out of CareerCraft AI?
               </p>
               <div className="flex w-full gap-3">
                 <button

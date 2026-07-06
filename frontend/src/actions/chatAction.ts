@@ -9,9 +9,9 @@ export async function generateChatResponse(message: string, isCodeExplainer: boo
     throw new Error("Missing GEMINI_API_KEY in environment variables.");
   }
 
+  // Force v1 api version to bypass potential v1beta issues with new AQ keys
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }, { apiVersion: "v1" });
-
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
   if (isCodeExplainer) {
     const prompt = `You are a computer science teacher. The student sent this message: ${message}
 
@@ -48,7 +48,7 @@ Rules you must follow:
 
     return result.response.text();
   } else {
-    const prompt = `You are CareerPilot AI, a helpful career assistant. Respond to the user's message concisely and helpfully.
+    const prompt = `You are CareerCraft AI, a helpful career assistant. Respond to the user's message concisely and helpfully.
 User: ${message}`;
     const result = await model.generateContent(prompt);
     return result.response.text();

@@ -422,7 +422,7 @@ export default function AppSettingsPage() {
       {/* CARD 3: Appearance */}
       <SettingsCard 
         title="Appearance" 
-        description="Customize the look and feel of CareerPilot AI."
+        description="Customize the look and feel of CareerCraft AI."
         icon={Layout}
       >
         <div className="space-y-6">
@@ -515,7 +515,7 @@ export default function AppSettingsPage() {
       {/* CARD 5: AI Assistant Preferences */}
       <SettingsCard 
         title="AI Assistant Preferences" 
-        description="Customize how the CareerPilot AI interacts with you."
+        description="Customize how the CareerCraft AI interacts with you."
         icon={Zap}
       >
         <div className="space-y-6">
@@ -586,7 +586,7 @@ export default function AppSettingsPage() {
             onChange={(val: boolean) => updateSetting('privacy', 'showHeatmap', val)}
           />
           <Toggle 
-            label="Share data to improve CareerPilot AI" 
+            label="Share data to improve CareerCraft AI" 
             description="Turning this off may reduce the accuracy of job matches and course suggestions."
             checked={settings.privacy.allowDataUsage}
             onChange={(val: boolean) => updateSetting('privacy', 'allowDataUsage', val)}

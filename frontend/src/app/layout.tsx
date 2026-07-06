@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title:"CareerPilot AI | Your AI Career Copilot",
+  title:"CareerCraft AI | Your AI Career Copilot",
   description:"Build resumes, discover jobs, learn in-demand skills, prepare for interviews, and get hired faster with AI.",
 };
 
